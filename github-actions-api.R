@@ -48,22 +48,22 @@ original_rstudio_repos <- rstudio_repositories |>
 
 get_repo_github_actions <- function(repo_full_name){
 
-  workflows_list <- purrr::map(repo_full_name,
-                                    .f = ~gh::gh(
-                                      "GET /repos/{full_name}/actions/workflows",
-                                      full_name = .x
-                                    ))
+  workflows_list <- gh::gh("GET /repos/{full_name}/actions/workflows",
+                           full_name = repo_full_name)
 
   workflows_df <- workflows_list |>
-    purrr::map("workflows") |>
-    purrr::compact() |>
-    purrr::modify_depth(2, tibble::as_tibble) |>
-    purrr::map_dfr(dplyr::bind_rows, .id = "id_repo")
+    purrr::pluck("workflows") |>
+    purrr::modify_depth(1, tibble::as_tibble) |>
+    purrr::map_dfr(dplyr::bind_rows, .id = "id_repo") |>
+    dplyr::mutate(repo = repo_full_name, .before = tidyselect::everything())
 
   workflows_df
 }
 
-rstudio_actions <- get_repo_github_actions(original_rstudio_repos$full_name)
+
+rstudio_actions <- original_rstudio_repos$full_name |>
+  purrr::map_dfr(get_repo_github_actions)
+
 
 
 
@@ -73,10 +73,31 @@ rstudio_actions |>
   dplyr::filter(state == "active") |>
   dplyr::mutate(created_at = lubridate::as_date(created_at),
     created_month = lubridate::floor_date(created_at, "month")) |>
-  dplyr::count(created_at) |>
+  dplyr::count(created_month) |>
   dplyr::mutate(n_acumulated = cumsum(n)) |>
   ggplot() +
-  geom_step(aes(x = created_at, y = n))
+  geom_line(aes(x = created_month, y = n_acumulated))
 
 
+
+#
+# /repos/{owner}/{repo}/actions/artifacts
+
+get_repo_github_actions_artifacts <- function(repo_full_name){
+
+  artifacts_list <- purrr::map(repo_full_name,
+                               .f = ~gh::gh(
+                                 "GET /repos/{full_name}/actions/artifacts",
+                                 full_name = .x
+                               ))
+
+
+  artifacts_df <- artifacts_list |>
+    purrr::map("artifacts") |>
+    purrr::compact() |>
+    purrr::modify_depth(2, tibble::as_tibble) |>
+    purrr::map_dfr(dplyr::bind_rows, .id = "id")
+
+  artifacts_df
+}
 
