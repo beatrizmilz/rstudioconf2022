@@ -80,24 +80,36 @@ rstudio_actions |>
 
 
 
-#
-# /repos/{owner}/{repo}/actions/artifacts
 
-get_repo_github_actions_artifacts <- function(repo_full_name){
 
-  artifacts_list <- purrr::map(repo_full_name,
+get_repo_github_actions_runs <- function(repo_full_name){
+
+  total_count <- gh::gh(
+    "GET /repos/{full_name}/actions/runs",
+    full_name = repo_full_name,
+    per_page = 1
+  )$total_count
+
+
+  pages_to_iterate <- ceiling(total_count/100)
+
+
+  runs_list <- purrr::map(1:pages_to_iterate,
                                .f = ~gh::gh(
-                                 "GET /repos/{full_name}/actions/artifacts",
-                                 full_name = .x
+                                 "GET /repos/{full_name}/actions/runs",
+                                 full_name = repo_full_name,
+                                 per_page = 100,
+                                 page = .x
                                ))
 
+  runs_df <- runs_list |>
+    purrr::map("workflow_runs") |>
+    purrr::map(purrr::compact) |>
+    purrr::map(purrr::discard, ~is.list(.x)) |>
+    purrr::map_dfr(tibble::as_tibble, .id = "id") |>
+    dplyr::mutate(repo = repo_full_name, .before = tidyselect::everything())
 
-  artifacts_df <- artifacts_list |>
-    purrr::map("artifacts") |>
-    purrr::compact() |>
-    purrr::modify_depth(2, tibble::as_tibble) |>
-    purrr::map_dfr(dplyr::bind_rows, .id = "id")
 
-  artifacts_df
+  runs_df
 }
 
