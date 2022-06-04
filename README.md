@@ -17,20 +17,12 @@ Ideia de roteiro:
 
 - Slide de apresentação sobre mim: First,  my name is Beatriz, I am an R-Lady from Brazil, and I really really like to automate repetitive tasks.
 
-- and Today my aim is to answer this question: "What is GitHub Actions? How can I run R Scripts with it?"
 
 - So, i'm going to ask a question and would be really nice if you could raise your hand if this applies to you:  do you have to do a task using R in a regular basis? like every day, once a week, once a month, for example?
 
 (WAIT SOME SECONDS SO PEOPLE CAN THINK AND RAISE THEIR HANDS)
 
-- If you raised your hand, GitHub Actions can be usefull to you. 
-
-
-- So... Imagine that you have to go to the post office to deliver a mail everyday. Everyday you get to walk in the same path, deliver it and then go back to your house. Everyday! That feels exausthing, right?
-
-- BUT! If you found out about an awesome robot that could take your mail at your house and deliver it at the post office everyday, so you don't need to do it yourself? That would be awesome, right?
-
-- GitHub Actions can be like this awesome robot!
+- If you raised your hand, GitHub Actions can be usefull to you, and Today my aim is to answer this question: "What is GitHub Actions? How can I run R Scripts with it?"
 
 
 - GitHub Actions has been heavily used in some contexts, like runing checks in packages. The tidyverse packages all use it. But what about people that are not package developers? What can we do apart from package development tasks? 
@@ -59,13 +51,20 @@ Ideia de roteiro:
 - Next, we need an R script with the code that we want to be executed. Imagine that you are in a brand new R installation, so you have to start your script installing all the packages you need in your script. Take your time to write a script that is fully reproducible!
 
 
-- Last, we need a file to store the GitHub Actions. Usually we copy and paste another actions script and adapt it.
+- Last, we need a file to store the GitHub Actions workflow. Usually we copy and paste from another script and adapt it.
 
 - FALTA POUCO! CONCLUIR
 
 
 
 
+-------
+- SÓ DEIXAR SE SOBRAR TEMPO:
+- So... Imagine that you have to go to the post office to deliver a mail everyday. Everyday you get to walk in the same path, deliver it and then go back to your house. Everyday! That feels exausthing, right?
+
+- BUT! If you found out about an awesome robot that could take your mail at your house and deliver it at the post office everyday, so you don't need to do it yourself? That would be awesome, right?
+
+- GitHub Actions can be like this awesome robot!
 
 
 
