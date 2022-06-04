@@ -15,9 +15,9 @@ Ideia de roteiro:
 
 - slide de abertura: Hi everyone! It's a great honor to be here to present this talk. Today I'm going to talk about how to make awesome automations with GitHub Actions.
 
-- Slide de apresentação sobre mim: First, a little bit about myself: my name is Beatriz, I am an R-Lady from Brazil, and I really really like to automate repetitive tasks.
+- Slide de apresentação sobre mim: First,  my name is Beatriz, I am an R-Lady from Brazil, and I really really like to automate repetitive tasks.
 
-- Today my aim is to answer this question: "What is GitHub Actions? How can I run R Scripts with it?"
+- and Today my aim is to answer this question: "What is GitHub Actions? How can I run R Scripts with it?"
 
 - So, i'm going to ask a question and would be really nice if you could raise your hand if this applies to you:  do you have to do a task using R in a regular basis? like every day, once a week, once a month, for example?
 
@@ -33,7 +33,7 @@ Ideia de roteiro:
 - GitHub Actions can be like this awesome robot!
 
 
-- GitHub Actions has been heavily used in some contexts, like runing checks in packages. The tidyverse packages all use it. But what about people that are not package developers? What can we do apart from that? 
+- GitHub Actions has been heavily used in some contexts, like runing checks in packages. The tidyverse packages all use it. But what about people that are not package developers? What can we do apart from package development tasks? 
 
 
 - This are some of the things that I do with Actions:
@@ -42,20 +42,31 @@ Ideia de roteiro:
 
   - ...and save it on the repository, in a database, or on a Google sheet..
   
-  - Send emails for me
+  - Send emails 
 
   - Run a regular R Script and save the results
-  
-  - So a lot of awesome tasks.
+
   
 
 - How you can start doing that?
 
-- First, you need a GitHub Account! You can sign up for free at github.com and there you go.
+- First, we need a GitHub Account! You can sign up for free at github.com and there you go.
 
-- Then, you need a repository! If you don't know what a repository is, imagine that you have a folder with all the files that you need in a project and you uploaded it somewhere, like in Google Drive. The repository is like that, it stores the files of your project, but is way easier to work with other people that are also programming.
+- Then, we need a repository! If you don't know what a repository is, imagine that you have a folder with all the files that you need in a project and you upload it somewhere, like in Google Drive. The repository is like that, a folder that stores the files of your project.
 
-- 
+- To show this example, I prepared this repository that stores the files that we need. You can click on fork if you want, so GitHub creates a copy of the repository in your account, and you can edit it after.
+
+- Next, we need an R script with the code that we want to be executed. Imagine that you are in a brand new R installation, so you have to start your script installing all the packages you need in your script. Take your time to write a script that is fully reproducible!
+
+
+- Last, we need a file to store the GitHub Actions. Usually we copy and paste another actions script and adapt it.
+
+- FALTA POUCO! CONCLUIR
+
+
+
+
+
 
 
 
