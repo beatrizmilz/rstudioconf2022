@@ -121,10 +121,19 @@ get_repo_github_actions_runs_page <- function(repo_full_name) {
 
   ))
 
-
   df_all_runs
-
-
 }
 
 
+
+
+df_all_runs |>
+  dplyr::mutate(start_date = lubridate::as_date(run_started_at),
+                run_month = lubridate::floor_date(start_date, "month")) |>
+  dplyr::filter(conclusion != "skipped", !event %in%  c("issue_comment","release", "dynamic")) |>
+  dplyr::count(repo, event, run_month) |>
+  dplyr::group_by(event) |>
+  dplyr::mutate(cumsum = cumsum(n)) |>
+  ggplot() +
+  geom_line(aes(x = run_month, y = cumsum, color = event)) +
+  facet_wrap(~repo)
