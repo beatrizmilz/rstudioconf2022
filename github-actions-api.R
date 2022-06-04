@@ -82,7 +82,28 @@ rstudio_actions |>
 
 
 
-get_repo_github_actions_runs <- function(repo_full_name){
+get_repo_github_actions_runs_page <- function(repo_full_name, page_number){
+
+  runs_list <- gh::gh(
+    "GET /repos/{full_name}/actions/runs",
+    full_name = repo_full_name,
+    per_page = 100,
+    page = page_number
+  )
+
+  runs_df <- runs_list |>
+    purrr::pluck("workflow_runs") |>
+    purrr::map(purrr::compact) |>
+    purrr::map(purrr::discard, ~is.list(.x)) |>
+    purrr::map_dfr(tibble::as_tibble, .id = "id") |>
+    dplyr::mutate(repo = repo_full_name, .before = tidyselect::everything())
+
+
+  runs_df
+}
+
+
+get_repo_github_actions_runs_page <- function(repo_full_name) {
 
   total_count <- gh::gh(
     "GET /repos/{full_name}/actions/runs",
@@ -93,23 +114,17 @@ get_repo_github_actions_runs <- function(repo_full_name){
 
   pages_to_iterate <- ceiling(total_count/100)
 
+  df_all_runs <- purrr::map_dfr(1:pages_to_iterate,
+                 ~ get_repo_github_actions_runs_page(
+    repo_full_name = repo_full_name,
+    page_number = .x
 
-  runs_list <- purrr::map(1:pages_to_iterate,
-                               .f = ~gh::gh(
-                                 "GET /repos/{full_name}/actions/runs",
-                                 full_name = repo_full_name,
-                                 per_page = 100,
-                                 page = .x
-                               ))
-
-  runs_df <- runs_list |>
-    purrr::map("workflow_runs") |>
-    purrr::map(purrr::compact) |>
-    purrr::map(purrr::discard, ~is.list(.x)) |>
-    purrr::map_dfr(tibble::as_tibble, .id = "id") |>
-    dplyr::mutate(repo = repo_full_name, .before = tidyselect::everything())
+  ))
 
 
-  runs_df
+  df_all_runs
+
+
 }
+
 
