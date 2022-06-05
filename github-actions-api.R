@@ -88,6 +88,7 @@ get_repo_github_actions <- function(repo_full_name){
 
 get_repo_github_actions_runs <- function(repo_full_name) {
 
+  usethis::ui_info("Starting with {repo_full_name}...")
   total_count <- gh::gh(
     "GET /repos/{full_name}/actions/runs",
     full_name = repo_full_name,
@@ -116,10 +117,23 @@ get_repo_github_actions_runs <- function(repo_full_name) {
   readr::write_rds(runs_df,
                    glue::glue("data/repos/runs_{ stringr::str_replace(repo_full_name, '/', '_')}_{Sys.Date()}.Rds"))
 
-
+  usethis::ui_done("Starting with {repo_full_name}...")
 }
 
-original_rstudio_repos$full_name |>
+
+original_rstudio_repos <- readr::read_rds("data/original_rstudio_repos_2022-06-04.Rds")
+
+downloaded_repos_runs <- dir("data/repos/") |>
+  stringr::str_remove("runs_") |>
+  stringr::str_remove(".Rds") |>
+  stringr::str_remove("_2022-06-04")|>
+  stringr::str_replace("_", "/")
+
+original_rstudio_repos |>
+  dplyr::filter(!full_name %in% downloaded_repos_runs) |>
+  dplyr::mutate(created_at = lubridate::as_date(created_at)) |>
+  dplyr::arrange(desc(created_at)) |>
+  dplyr::pull(full_name) |>
   purrr::walk(get_repo_github_actions_runs)
 
 
