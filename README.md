@@ -25,18 +25,25 @@ Ideia de roteiro:
 - If you raised your hand, GitHub Actions can be usefull to you, and Today my aim is to answer this question: "What is GitHub Actions? How can I run R Scripts with it?"
 
 
-- GitHub Actions has been heavily used in some contexts, like runing checks in packages. The tidyverse packages all use it. But what about people that are not package developers? What can we do apart from package development tasks? 
+- GitHub Actions has been heavily used in some contexts, like runing checks in packages. The tidyverse packages all use it, and package developers can easily start using  with the help of package usethis!
 
 
-- This are some of the things that I do with Actions:
+- But what about people that are not package developers? What can be done apart from package development tasks? 
 
-  - I Scrape data from the internet...
+
+- This are some of the things that you can do with Actions:
+
+  - Scrape data from the internet...
 
   - ...and save it on the repository, in a database, or on a Google sheet..
   
-  - Send emails 
-
+  - Run Rmarkdown reports
+  
+  
   - Run a regular R Script and save the results
+  
+  - Send emails with the results
+
 
   
 
