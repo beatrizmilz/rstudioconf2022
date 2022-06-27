@@ -1,26 +1,93 @@
 ---
-title: "Untitled"
-format: revealjs
-editor: visual
+title: "making awesome automations with **Github Actions**"
+author: "Beatriz Milz"
+date: "rstudio::conf 2022 | July 2022   <br><br> Slides: beatrizmilz.github.io/rstudioconf2022 "
+format: 
+  revealjs:
+    width: 1600
+    height: 900
+    self-contained: false
+    incremental: false
+    #logo: "img/logo.png"
+    footer: "Slides by [Beatriz Milz](https://beamilz.com) (@BeaMilz), made with [Quarto](https://quarto.org/docs/presentations/revealjs/index.html)."
+    theme: ["custom.scss"]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: false
 ---
 
-## Quarto
+## **Run scripts...** 🙋‍♀️️  {.center .center-y}
 
-Quarto enables you to weave together content and executable code into a finished presentation.
-To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
-## Bullets
 
-When you click the **Render** button a document will be generated that includes:
+### every day?
 
--   Content authored with markdown
--   Output from executable code
+<br>
 
-## Code
+### every week?
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code.
-You can embed code like this:
+<br>
+
+### every month?
+
+
+## What is GitHub Actions? {.center .center-y}
+
+<br>
+
+### How can I run R Scripts with it?
+
+##  {.center .center-y}
+
+<img src="img/github-actions.webp" >
+
+
+## R packages 📦
+
+<br>
+
 
 ```{r}
-1 + 1
+#| eval: false
+#| include: true
+#| echo: true
+library(usethis) # Load usethis
+use_github_action("check-standard") # run check
+use_github_action("pkgdown") # build pkgdown site
 ```
+
+<br>
+
+See other examples in: [github.com/r-lib/actions/](https://github.com/r-lib/actions/tree/v2/examples)
+
+
+## Use of GHA by RStudio's 
+
+## Thanks! {.center}
+
+- [RStudio](https://www.rstudio.com/)
+
+-  [Curso-R](https://curso-r.com/) and Julio Trecenti, Daniel Falbel, Athos Damiani
+
+- Creators and contributors of [r-lib/actions](https://github.com/r-lib/actions)
+
+- [Articulation Inc.](https://www.articulationinc.com/)
+
+## Beatriz Milz 🇧🇷 {.center .aboutmeslide}
+
+- Contact
+
+  -   Twitter: [\@BeaMilz](https://twitter.com/BeaMilz)
+  
+  -   Blog: [beamilz.com](https://beamilz.com)
+
+- About Bea
+
+  -   R-Ladies São Paulo Co-organizer
+
+  -   Teacher at [Curso-R](https://curso-r.com/)
+
+  -   Tidyverse instructor certified by RStudio
+
+<img src="img/octocat-1656339210373.png" style="right: -10px;height: 80%;top: -10px;position: absolute;"/>
