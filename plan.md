@@ -1,5 +1,7 @@
 ## Planejamento da palestra
 
+- TODO: Blogpost about GHA in RStudio
+
 Título da palestra: Making awesome automations with Github Actions
 
 Tempo: 4 min 45 s.
@@ -69,16 +71,6 @@ Ideia de roteiro:
 
 - FALTA POUCO! CONCLUIR
 
-
-
-
--------
-- SÓ DEIXAR SE SOBRAR TEMPO:
-- So... Imagine that you have to go to the post office to deliver a mail everyday. Everyday you get to walk in the same path, deliver it and then go back to your house. Everyday! That feels exausthing, right?
-
-- BUT! If you found out about an awesome robot that could take your mail at your house and deliver it at the post office everyday, so you don't need to do it yourself? That would be awesome, right?
-
-- GitHub Actions can be like this awesome robot!
 
 
 

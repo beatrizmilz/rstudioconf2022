@@ -143,24 +143,38 @@ df_complete_runs <- fs::dir_ls("data/repos/") |>
 df_complete_runs |>
   readr::write_rds("data/complete_runs_original_rstudio_repos.Rds")
 
+# create graph
+
+df_complete_runs <- readr::read_rds("data/complete_runs_original_rstudio_repos.Rds")
 
 library(ggplot2)
+options(scipen=9999)
 
 df_complete_runs |>
   dplyr::count(event, sort = TRUE)
 
-df_complete_runs |>
+base_graph <- df_complete_runs |>
   dplyr::mutate(start_date = lubridate::as_date(run_started_at),
                 run_month = lubridate::floor_date(start_date, "month")) |>
-  tidyr::separate(repo, into = c("org", "repo"), sep = "/") |>
-  dplyr::filter(conclusion != "skipped", event %in%  c("pull_request","push", "schedule",
-                                                       "issue_comment", "repository_dispatch")) |>
-  dplyr::count(org, event, run_month) |>
-  dplyr::group_by(event) |>
-  dplyr::mutate(cumsum = cumsum(n)) |>
+  dplyr::filter(conclusion != "skipped", start_date < "2022-06-01") |>
+  dplyr::count(run_month) |>
   ggplot() +
-  geom_line(aes(x = run_month, y = cumsum, color = event)) +
-  facet_wrap(~org)
+  geom_line(aes(x = run_month, y = n), color = "#5a378c", size = 1.5)
 
+min()
 
-# ORDENAR do maior para o menor
+final_graph <- base_graph +
+  theme_minimal(base_size = 15) +
+  theme(panel.grid.minor = element_blank()) +
+  labs(y = "Actions runs per month \n", x = "\nMonth") +
+  scale_x_date(date_labels = "%b/%y", date_breaks = "4 month",
+               limits = c(as.Date("2020-03-01"), as.Date("2022-06-01"))) +
+  scale_y_continuous(limits = c(0, 20000))
+
+ggsave(
+  "img/rstudio_ggplot.png",
+  plot = final_graph,
+  dpi = 600,
+  height = 5,
+  width = 7
+)

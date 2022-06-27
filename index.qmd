@@ -17,9 +17,7 @@ format:
     preview-links: false
 ---
 
-## **Run scripts...** 🙋‍♀️️  {.center .center-y}
-
-
+## **Run scripts...** 🙋‍♀️️ {.center .center-y}
 
 ### every day?
 
@@ -31,7 +29,6 @@ format:
 
 ### every month?
 
-
 ## What is GitHub Actions? {.center .center-y}
 
 <br>
@@ -40,13 +37,11 @@ format:
 
 ##  {.center .center-y}
 
-<img src="img/github-actions.webp" >
-
+<img src="img/github-actions.webp"/>
 
 ## R packages 📦
 
 <br>
-
 
 ```{r}
 #| eval: false
@@ -61,33 +56,77 @@ use_github_action("pkgdown") # build pkgdown site
 
 See other examples in: [github.com/r-lib/actions/](https://github.com/r-lib/actions/tree/v2/examples)
 
+## {}
 
-## Use of GHA by RStudio's 
+::: center-y
+#### Use of GHA by RStudio's organizations
+:::
+<br>
+
+::: columns
+::: {.column width="70%" .center}
+
+
+```{r}
+#| out.width: "100%"
+knitr::include_graphics("img/rstudio_ggplot.png")
+```
+
+
+:::
+
+::: {.column width="30%" .rstudioslide}
+- Completed action runs
+- Public repositories from:
+  - [rstudio](https://github.com/rstudio) 
+  - [tidyverse](https://github.com/tidyverse) 
+  - [r-lib](https://github.com/r-lib) 
+  - [mlverse](https://github.com/mlverse) 
+  - [tidymodels](https://github.com/tidymodels) 
+  - [quarto-dev](https://github.com/quarto-dev)
+
+:::
+:::
+
+## What about common scripts? {.wow .center}
+
+  - Run an R Script
+  
+  - Save results 
+
+  - Scrape data from the internet
+  
+  - Run reports with RMarkdown and Quarto
+  
+  - Send emails
+  
+## TODO   
+
 
 ## Thanks! {.center}
 
-- [RStudio](https://www.rstudio.com/)
+-   [RStudio](https://www.rstudio.com/) - Thanks for the **Diversity Scholarship**!
 
--  [Curso-R](https://curso-r.com/) and Julio Trecenti, Daniel Falbel, Athos Damiani
+-   [Curso-R](https://curso-r.com/) and Julio Trecenti, Daniel Falbel, Athos Damiani
 
-- Creators and contributors of [r-lib/actions](https://github.com/r-lib/actions)
+-   Creators and contributors of [r-lib/actions](https://github.com/r-lib/actions)
 
-- [Articulation Inc.](https://www.articulationinc.com/)
+-   [Articulation Inc.](https://www.articulationinc.com/)
 
 ## Beatriz Milz 🇧🇷 {.center .aboutmeslide}
 
-- Contact
+-   Contact
 
-  -   Twitter: [\@BeaMilz](https://twitter.com/BeaMilz)
-  
-  -   Blog: [beamilz.com](https://beamilz.com)
+    -   Twitter: [\@BeaMilz](https://twitter.com/BeaMilz)
 
-- About Bea
+    -   Blog: [beamilz.com](https://beamilz.com)
 
-  -   R-Ladies São Paulo Co-organizer
+-   About Bea
 
-  -   Teacher at [Curso-R](https://curso-r.com/)
+    -   R-Ladies São Paulo Co-organizer
 
-  -   Tidyverse instructor certified by RStudio
+    -   Teacher at [Curso-R](https://curso-r.com/)
+
+    -   Tidyverse instructor certified by RStudio
 
 <img src="img/octocat-1656339210373.png" style="right: -10px;height: 80%;top: -10px;position: absolute;"/>

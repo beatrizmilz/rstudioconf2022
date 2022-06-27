@@ -66,3 +66,12 @@ h1 strong{
 .aboutmeslide{
   font-size: 0.8em;
 }
+
+.rstudioslide{
+  font-size: 30pt;
+}
+
+li::marker .wow{
+  content: "🤯";
+  padding-inline-start: 1ch;
+}
