@@ -153,28 +153,47 @@ options(scipen=9999)
 df_complete_runs |>
   dplyr::count(event, sort = TRUE)
 
-base_graph <- df_complete_runs |>
+base_data <- df_complete_runs |>
   dplyr::mutate(start_date = lubridate::as_date(run_started_at),
                 run_month = lubridate::floor_date(start_date, "month")) |>
   dplyr::filter(conclusion != "skipped", start_date < "2022-06-01") |>
-  dplyr::count(run_month) |>
-  ggplot() +
-  geom_line(aes(x = run_month, y = n), color = "#5a378c", size = 1.5)
+  dplyr::count(run_month)
 
-min()
+
+max_min <- base_data |>
+  dplyr::filter(run_month %in% c(min(run_month), max(run_month))) |>
+  dplyr::mutate(label = glue::glue("{round(n/1000)}k"))
+
+base_graph <- base_data |>
+  ggplot() +
+  geom_line(aes(x = run_month, y = n), color = "#80868b", size = 1.5)
+
 
 final_graph <- base_graph +
   theme_minimal(base_size = 15) +
-  theme(panel.grid.minor = element_blank()) +
-  labs(y = "Actions runs per month \n", x = "\nMonth") +
+  theme(panel.grid.minor = element_blank(),
+        panel.grid.major = element_blank(),
+        plot.title.position = "plot",
+        plot.title = element_text(family = "Montserrat", color = "#4c83b6"),
+        text = element_text(family = "Montserrat", color = "#80868b")) +
+  labs(y = "Actions runs per month", x = "\nMonth\n",
+       title = "Actions runs by RStudio's organizations on GitHub",
+       caption = "Plot made by @BeaMilz. Data from the GitHub API.") +
   scale_x_date(date_labels = "%b/%y", date_breaks = "4 month",
                limits = c(as.Date("2020-03-01"), as.Date("2022-06-01"))) +
-  scale_y_continuous(limits = c(0, 20000))
+  scale_y_continuous(limits = c(0, 25000), labels = function(x){glue::glue("{x/1000}k")}) +
+  geom_point(data = max_min, aes(x = run_month, y = n), size = 3, color = "#4c83b6") +
+  ggrepel::geom_text_repel(data = max_min, aes(x = run_month, y = n, label = label), size = 10, color = "#4c83b6",nudge_y = 4000, nudge_x = 0, min.segment.length = 0)
+
+
+final_graph
+
 
 ggsave(
   "img/rstudio_ggplot.png",
   plot = final_graph,
-  dpi = 600,
+  dpi = 300,
   height = 5,
   width = 7
 )
+

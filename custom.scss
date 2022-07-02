@@ -9,7 +9,7 @@ $font-family-sans-serif: 'Lato', Tahoma, sans-serif !default;
 
 // headings
 $presentation-heading-font: 'Montserrat',  Tahoma, sans-serif  !default;
-$presentation-heading-color: #5a378c !default;
+$presentation-heading-color: #4c83b6 !default;
 $h1-font-size: 1.3em !default;
 $h2-font-size: 1.1em !default;
 $h3-font-size: 1.05em !default;
@@ -20,16 +20,22 @@ $font-family-monospace: 'Inconsolata', monospace  !default;
 
 // general
 $body-bg: #fff;
-$link-color: #513c6e;
+$link-color: #2a547c;
 $presentation-font-size-root: 50pt;
-$body-color: #413a3a;
+$body-color: #80868b;
 
 /*-- scss:rules --*/
 .reveal pre code {
   background-color: #f8f8f8;
   font-size: 1.5em;
-  padding: 0.5em;
-  line-height: 2em;
+  padding: 0em;
+  line-height: 1.1em;
+}
+
+
+
+.reveal .footer > * {
+  color: #383c41;
 }
 
 
@@ -53,8 +59,18 @@ h1 {
 
 
 h1 strong{
-  color: #2f1455;
-  font-family: monospace;
+  color: #0f4d87;
+  font-family: 'Fira Code', monospace;
+}
+
+.date strong{
+  color: #2f7bc2;
+  font-family: 'Fira Code', monospace;
+  font-size: 1em;
+}
+
+.reveal code {
+  font-family: 'Fira Code', monospace;
 }
 
 .reveal a{

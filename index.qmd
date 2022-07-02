@@ -1,7 +1,7 @@
 ---
 title: "making awesome automations with **Github Actions**"
 author: "Beatriz Milz"
-date: "rstudio::conf 2022 | July 2022   <br><br> Slides: beatrizmilz.github.io/rstudioconf2022 "
+date: "rstudio::conf 2022 | July 2022   <br><br> Slides: **beatrizmilz.github.io/rstudioconf2022** "
 format: 
   revealjs:
     width: 1600
@@ -29,15 +29,43 @@ format:
 
 ### every month?
 
+##  {.center .center-y}
+
+![](img/github-actions.webp){fig-align="center" width="150%"}
+
 ## What is GitHub Actions? {.center .center-y}
 
 <br>
 
 ### How can I run R Scripts with it?
 
-##  {.center .center-y}
+##  {.center}
 
-<img src="img/github-actions.webp"/>
+::: center-y
+#### How important is GHA to RStudio?
+:::
+
+<br>
+
+::: columns
+::: {.column .center width="70%"}
+```{r}
+#| out.width: "100%"
+knitr::include_graphics("img/plot_zoom.png")
+```
+:::
+
+::: {.column .rstudioslide width="30%"}
+-   Completed action runs
+-   Public repositories from:
+    -   [rstudio](https://github.com/rstudio)
+    -   [tidyverse](https://github.com/tidyverse)
+    -   [r-lib](https://github.com/r-lib)
+    -   [mlverse](https://github.com/mlverse)
+    -   [tidymodels](https://github.com/tidymodels)
+    -   [quarto-dev](https://github.com/quarto-dev)
+:::
+:::
 
 ## R packages 📦
 
@@ -47,61 +75,31 @@ format:
 #| eval: false
 #| include: true
 #| echo: true
-library(usethis) # Load usethis
-use_github_action("check-standard") # run check
-use_github_action("pkgdown") # build pkgdown site
+# Load usethis
+library(usethis)
+# run check
+use_github_action("check-standard")
+# build pkgdown site
+use_github_action("pkgdown")
 ```
 
 <br>
 
 See other examples in: [github.com/r-lib/actions/](https://github.com/r-lib/actions/tree/v2/examples)
 
-## {}
+## What can we do with GHA? {.wow .center}
 
-::: center-y
-#### Use of GHA by RStudio's organizations
-:::
-<br>
+-   Run arbitrary R scripts:
 
-::: columns
-::: {.column width="70%" .center}
+    -   Scrape data from the internet
 
+    -   Run reports with RMarkdown or Quarto
 
-```{r}
-#| out.width: "100%"
-knitr::include_graphics("img/rstudio_ggplot.png")
-```
+    -   Send emails
 
+    -   Save results
 
-:::
-
-::: {.column width="30%" .rstudioslide}
-- Completed action runs
-- Public repositories from:
-  - [rstudio](https://github.com/rstudio) 
-  - [tidyverse](https://github.com/tidyverse) 
-  - [r-lib](https://github.com/r-lib) 
-  - [mlverse](https://github.com/mlverse) 
-  - [tidymodels](https://github.com/tidymodels) 
-  - [quarto-dev](https://github.com/quarto-dev)
-
-:::
-:::
-
-## What about common scripts? {.wow .center}
-
-  - Run an R Script
-  
-  - Save results 
-
-  - Scrape data from the internet
-  
-  - Run reports with RMarkdown and Quarto
-  
-  - Send emails
-  
-## TODO   
-
+## TODO
 
 ## Thanks! {.center}
 

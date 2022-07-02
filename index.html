@@ -384,7 +384,7 @@
 <section class="center">
   <h1 class="title">making awesome automations with <strong>Github Actions</strong></h1>
   <p class="author">Beatriz Milz</p>
-  <p class="date">rstudio::conf 2022 | July 2022 <br><br> Slides: beatrizmilz.github.io/rstudioconf2022</p>
+  <p class="date">rstudio::conf 2022 | July 2022 <br><br> Slides: <strong>beatrizmilz.github.io/rstudioconf2022</strong></p>
 </section>
 
 <section class="slide level2 center center-y">
@@ -396,36 +396,25 @@
 <h3>every month?</h3>
 </section>
 <section class="slide level2 center center-y">
+<h2></h2>
+
+<img data-src="img/github-actions.webp" style="width:150.0%" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2 center center-y">
 <h2>What is GitHub Actions?</h2>
 <p><br></p>
 <h3>How can I run R Scripts with it?</h3>
 </section>
-<section class="slide level2 center center-y">
-<h2></h2>
-
-<img src="img/github-actions.webp" class="r-stretch"></section>
-<section class="slide level2">
-<h2>R packages 📦</h2>
-<p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(usethis) <span class="co"># Load usethis</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">use_github_action</span>(<span class="st">"check-standard"</span>) <span class="co"># run check</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">use_github_action</span>(<span class="st">"pkgdown"</span>) <span class="co"># build pkgdown site</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br></p>
-<p>See other examples in: <a href="https://github.com/r-lib/actions/tree/v2/examples">github.com/r-lib/actions/</a></p>
-</section>
-<section class="slide level2">
+<section class="slide level2 center">
 <h2></h2>
 <section class="center-y">
-<h4>Use of GHA by RStudio’s organizations</h4>
+<h4>How important is GHA to RStudio?</h4>
 </section>
 <p><br></p>
 <div class="columns">
 <div class="column center" style="width:70%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="img/rstudio_ggplot.png" style="width:100.0%"></p>
+<p><img data-src="img/plot_zoom.png" style="width:100.0%"></p>
 </div>
 </div>
 </div><div class="column rstudioslide" style="width:30%;">
@@ -444,14 +433,30 @@
 </div>
 </div>
 </section>
+<section class="slide level2">
+<h2>R packages 📦</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load usethis</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># run check</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">use_github_action</span>(<span class="st">"check-standard"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># build pkgdown site</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">use_github_action</span>(<span class="st">"pkgdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>See other examples in: <a href="https://github.com/r-lib/actions/tree/v2/examples">github.com/r-lib/actions/</a></p>
+</section>
 <section class="slide level2 wow center">
-<h2>What about common scripts?</h2>
+<h2>What can we do with GHA?</h2>
 <ul>
-<li><p>Run an R Script</p></li>
-<li><p>Save results</p></li>
+<li><p>Run arbitrary R scripts:</p>
+<ul>
 <li><p>Scrape data from the internet</p></li>
-<li><p>Run reports with RMarkdown and Quarto</p></li>
+<li><p>Run reports with RMarkdown or Quarto</p></li>
 <li><p>Send emails</p></li>
+<li><p>Save results</p></li>
+</ul></li>
 </ul>
 </section>
 <section class="slide level2">
