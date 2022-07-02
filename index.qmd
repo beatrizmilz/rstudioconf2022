@@ -116,21 +116,21 @@ graph
 :::
 :::
 
-::: note
+::: {.notes}
 -   The tidyverse packages and other projects from RStudio uses Actions. This plot shows how the use of actions has been increasing in repositories in the organizations from Rstudio, such as : rstudio, tidyverse, r-lib, mlverse, tidymodels and quarto.
 :::
 
-## What can we do with GHA? {.wow .center}
+## What else can we do? {.wow .center}
 
- Run arbitrary R scripts:
+##  Run arbitrary R scripts {.center}
 
-  -   Scrape data from the internet
+-   Scrape data from the internet
 
-  -   Run reports with RMarkdown or Quarto
+-   Run reports with RMarkdown or Quarto
 
-  -   Send emails
+-   Send emails
 
-  -   Save results
+-   Save results
 
 ::: {.notes}
 
@@ -141,7 +141,7 @@ This are some of the things that you can do with Actions: Scrape data from the i
 
 :::
 
-##  {.codeyml}
+##  {}
 
 
 ```{yml}
@@ -149,130 +149,13 @@ This are some of the things that you can do with Actions: Scrape data from the i
 #| include: true
 #| echo: true
 #| classes: codeyml
-#| code-line-numbers: false
+#| code-line-numbers: "1,2,3,4"
 on: # what triggers the workflow?
   workflow_dispatch: # start when pressing a button
   schedule: 
   - cron: "0 0 * * *" # run everyday
 
-```
-
-
-```{yml}
-#| eval: false
-#| include: true
-#| echo: true
-#| classes: graycode
-#| code-line-numbers: false
-
-
-name: execute-r-script
-
-jobs:
-  execute-r-script:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: r-lib/actions/setup-r@v2
-        with: 
-          use-public-rspm: true
-      - name: run-script
-        run: Rscript my_awesome_R_script.R
-```
-
-##  {.codeyml}
-
-
-```{yml}
-#| eval: false
-#| include: true
-#| echo: true
-#| classes: graycode
-#| code-line-numbers: false
-on: 
-  workflow_dispatch: 
-  schedule: 
-  - cron: "0 0 * * *" 
-
-
-```
-
-
-
-```{yml}
-#| eval: false
-#| include: true
-#| echo: true
-#| classes: codeyml
-#| code-line-numbers: false
-
-
 name: execute-r-script # name of the workflow
-
-```
-
-
-```{yml}
-#| eval: false
-#| include: true
-#| echo: true
-#| classes: graycode
-#| code-line-numbers: false
-
-
-jobs:
-  execute-r-script:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: r-lib/actions/setup-r@v2
-        with: 
-          use-public-rspm: true
-      - name: run-script
-        run: Rscript my_awesome_R_script.R
-```
-
-
-##  {.codeyml}
-
-<!-- #### How can we start using GitHub Actions? {.center} -->
-
-```{yml}
-#| eval: false
-#| include: true
-#| echo: true
-#| classes: graycode
-#| code-line-numbers: false
-on: 
-  workflow_dispatch: 
-  schedule: 
-  - cron: "0 0 * * *" 
-
-
-```
-
-
-
-```{yml}
-#| eval: false
-#| include: true
-#| echo: true
-#| classes: graycode
-#| code-line-numbers: false
-
-
-name: execute-r-script
-
-```
-
-
-```{yml}
-#| eval: false
-#| include: true
-#| echo: true
-#| classes: codeyml
-#| code-line-numbers: false
-
 
 jobs: # what the workflow should do?
   execute-r-script:
@@ -280,12 +163,70 @@ jobs: # what the workflow should do?
     steps:
       - uses: actions/checkout@v3
       - uses: r-lib/actions/setup-r@v2 # Install R
+        with: 
+          use-public-rspm: true    
       - name: run-script
-        run: Rscript my_awesome_R_script.R # Run R script
+        run: Rscript my_awesome_R_script.R  # Run R script
+```
+
+## {}
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: codeyml
+#| code-line-numbers: "6"
+on: # what triggers the workflow?
+  workflow_dispatch: # start when pressing a button
+  schedule: 
+  - cron: "0 0 * * *" # run everyday
+
+name: execute-r-script # name of the workflow
+
+jobs: # what the workflow should do?
+  execute-r-script:
+    runs-on: ubuntu-latest # Run on Ubuntu
+    steps:
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2 # Install R
+        with: 
+          use-public-rspm: true    
+      - name: run-script
+        run: Rscript my_awesome_R_script.R  # Run R script
 ```
 
 
-##  Examples {.center}
+
+## {}
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: codeyml
+#| code-line-numbers: "8,9,10,11,12,13,14,15,16,17"
+on: # what triggers the workflow?
+  workflow_dispatch: # start when pressing a button
+  schedule: 
+  - cron: "0 0 * * *" # run everyday
+
+name: execute-r-script # name of the workflow
+
+jobs: # what the workflow should do?
+  execute-r-script:
+    runs-on: ubuntu-latest # Run on Ubuntu
+    steps:
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2 # Install R
+        with: 
+          use-public-rspm: true    
+      - name: run-script
+        run: Rscript my_awesome_R_script.R  # Run R script
+```
+
+
+##  More examples... {.center}
 
 [![](img/blog.png){fig-align="center" width="60%"}](https://beamilz.com/series-gha.html)
 
