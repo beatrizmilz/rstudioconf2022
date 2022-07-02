@@ -394,15 +394,95 @@
 <h3>every week?</h3>
 <p><br></p>
 <h3>every month?</h3>
+<aside class="notes">
+<ul>
+<li>So, i’m going to ask a question and would be really nice if you could raise your hand if this applies to you: do you have to do a task using R in a regular basis? like every day, once a week, once a month, for example?</li>
+</ul>
+<p>(WAIT SOME SECONDS SO PEOPLE CAN THINK AND RAISE THEIR HANDS)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 center center-y">
 <h2></h2>
-
-<img data-src="img/github-actions.webp" style="width:150.0%" class="r-stretch quarto-figure-center"></section>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/githubactions.jpg" data-heigth="100%"></p>
+</figure>
+</div>
+<aside class="notes">
+<ul>
+<li>If you raised your hand, GitHub Actions can be usefull to you!</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2 center center-y">
 <h2>What is GitHub Actions?</h2>
 <p><br></p>
 <h3>How can I run R Scripts with it?</h3>
+<aside class="notes">
+<ul>
+<li>and Today my aim is to answer this question: “What is GitHub Actions? How can I run R Scripts with it?”</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+<h2>R packages 📦</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load usethis</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># run check</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">use_github_action</span>(<span class="st">"check-standard"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># build pkgdown site</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">use_github_action</span>(<span class="st">"pkgdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>See other examples in: <a href="https://github.com/r-lib/actions/tree/v2/examples">github.com/r-lib/actions/</a></p>
+<aside class="notes">
+<ul>
+<li><p>So, Actions is a service from GitHub that allows us to automate code executions in the cloud.</p></li>
+<li><p>GitHub Actions has been heavily used in some contexts, like runing checks in packages, building its website, and so on. Package developers can easily start using Acitons with the help of package usethis!</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 center">
 <h2></h2>
@@ -414,7 +494,7 @@
 <div class="column center" style="width:70%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="img/plot_zoom.png" style="width:100.0%"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="4800"></p>
 </div>
 </div>
 </div><div class="column rstudioslide" style="width:30%;">
@@ -432,41 +512,143 @@
 </ul>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>R packages 📦</h2>
-<p><br></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load usethis</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(usethis)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># run check</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">use_github_action</span>(<span class="st">"check-standard"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># build pkgdown site</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">use_github_action</span>(<span class="st">"pkgdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="note">
+<ul>
+<li>The tidyverse packages and other projects from RStudio uses Actions. This plot shows how the use of actions has been increasing in repositories in the organizations from Rstudio, such as : rstudio, tidyverse, r-lib, mlverse, tidymodels and quarto.</li>
+</ul>
 </div>
-<p><br></p>
-<p>See other examples in: <a href="https://github.com/r-lib/actions/tree/v2/examples">github.com/r-lib/actions/</a></p>
 </section>
 <section class="slide level2 wow center">
 <h2>What can we do with GHA?</h2>
-<ul>
-<li><p>Run arbitrary R scripts:</p>
+<p>Run arbitrary R scripts:</p>
 <ul>
 <li><p>Scrape data from the internet</p></li>
 <li><p>Run reports with RMarkdown or Quarto</p></li>
 <li><p>Send emails</p></li>
 <li><p>Save results</p></li>
-</ul></li>
 </ul>
+<aside class="notes">
+<p>But what about people that are not package developers? What can be done apart from package development tasks?</p>
+<p>This are some of the things that you can do with Actions: Scrape data from the internet, render reports with RMarkdown or Quarto, save results from an analysis, and even send them on an email!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section class="slide level2">
-<h2>TODO</h2>
+<section class="slide level2 codeyml">
+<h2></h2>
+<div class="cell codeyml">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="false"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="co"> # what triggers the workflow?</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span><span class="co"> # start when pressing a button</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">"0 0 * * *"</span><span class="co"> # run everyday</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell graycode">
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="false"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> execute-r-script</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">execute-r-script</span><span class="kw">:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">use-public-rspm</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> run-script</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> Rscript my_awesome_R_script.R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 codeyml">
+<h2></h2>
+<div class="cell graycode">
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="false"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">"0 0 * * *"</span><span class="at"> </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell codeyml">
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="false"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> execute-r-script</span><span class="co"> # name of the workflow</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell graycode">
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="false"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">execute-r-script</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">use-public-rspm</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> run-script</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> Rscript my_awesome_R_script.R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 codeyml">
+<h2></h2>
+<!-- #### How can we start using GitHub Actions? {.center} -->
+<div class="cell graycode">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="false"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">"0 0 * * *"</span><span class="at"> </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell graycode">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="false"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> execute-r-script</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell codeyml">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="false"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span><span class="co"> # what the workflow should do?</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">execute-r-script</span><span class="kw">:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span><span class="co"> # Run on Ubuntu</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v3</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span><span class="co"> # Install R</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> run-script</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> Rscript my_awesome_R_script.R</span><span class="co"> # Run R script</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+<h2>Examples</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://beamilz.com/series-gha.html"><img data-src="img/blog.png" style="width:60.0%"></a></p>
+</figure>
+</div>
+<center>
+<a href="https://beamilz.com/series-gha.html" class="uri">https://beamilz.com/series-gha.html</a>
+</center>
+<aside class="notes">
+<ul>
+<li>I prepared a series of posts that can help you start using Actions, which several examples! Also, there is a repository that you can fork, and explore later!</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2 center">
 <h2>Thanks!</h2>
 <ul>
 <li><p><a href="https://www.rstudio.com/">RStudio</a> - Thanks for the <strong>Diversity Scholarship</strong>!</p></li>
-<li><p><a href="https://curso-r.com/">Curso-R</a> and Julio Trecenti, Daniel Falbel, Athos Damiani</p></li>
+<li><p><a href="https://www.meetup.com/pt-BR/rladies-sao-paulo/">R-Ladies São Paulo</a> and <a href="http://r-ladies.org/">R-Ladies Global</a></p></li>
+<li><p><a href="https://curso-r.com/">Curso-R</a> and <a href="https://github.com/jtrecenti">Julio Trecenti</a>, <a href="https://github.com/dfalbel">Daniel Falbel</a>, <a href="https://github.com/Athospd">Athos Damiani</a></p></li>
 <li><p>Creators and contributors of <a href="https://github.com/r-lib/actions">r-lib/actions</a></p></li>
 <li><p><a href="https://www.articulationinc.com/">Articulation Inc.</a></p></li>
 </ul>

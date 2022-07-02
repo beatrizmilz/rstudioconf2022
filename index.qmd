@@ -15,6 +15,10 @@ format:
     show-slide-number: all
     hash-type: number
     preview-links: false
+# <!-- ::: {.notes} -->
+# <!-- Slide 1:
+# Hi everyone! It's a great honor to be here to present this talk. My name is Beatriz, and today I'm going to talk about how to make awesome automations with GitHub Actions. -->
+# <!-- ::: -->
 ---
 
 ## **Run scripts...** 🙋‍♀️️ {.center .center-y}
@@ -29,9 +33,19 @@ format:
 
 ### every month?
 
+::: notes
+-   So, i'm going to ask a question and would be really nice if you could raise your hand if this applies to you: do you have to do a task using R in a regular basis? like every day, once a week, once a month, for example?
+
+(WAIT SOME SECONDS SO PEOPLE CAN THINK AND RAISE THEIR HANDS)
+:::
+
 ##  {.center .center-y}
 
-![](img/github-actions.webp){fig-align="center" width="150%"}
+![](img/githubactions.jpg){fig-align="center" heigth="100%"}
+
+::: notes
+-   If you raised your hand, GitHub Actions can be usefull to you!
+:::
 
 ## What is GitHub Actions? {.center .center-y}
 
@@ -39,32 +53,8 @@ format:
 
 ### How can I run R Scripts with it?
 
-##  {.center}
-
-::: center-y
-#### How important is GHA to RStudio?
-:::
-
-<br>
-
-::: columns
-::: {.column .center width="70%"}
-```{r}
-#| out.width: "100%"
-knitr::include_graphics("img/plot_zoom.png")
-```
-:::
-
-::: {.column .rstudioslide width="30%"}
--   Completed action runs
--   Public repositories from:
-    -   [rstudio](https://github.com/rstudio)
-    -   [tidyverse](https://github.com/tidyverse)
-    -   [r-lib](https://github.com/r-lib)
-    -   [mlverse](https://github.com/mlverse)
-    -   [tidymodels](https://github.com/tidymodels)
-    -   [quarto-dev](https://github.com/quarto-dev)
-:::
+::: notes
+-   and Today my aim is to answer this question: "What is GitHub Actions? How can I run R Scripts with it?"
 :::
 
 ## R packages 📦
@@ -87,25 +77,233 @@ use_github_action("pkgdown")
 
 See other examples in: [github.com/r-lib/actions/](https://github.com/r-lib/actions/tree/v2/examples)
 
+::: notes
+-   So, Actions is a service from GitHub that allows us to automate code executions in the cloud.
+
+-   GitHub Actions has been heavily used in some contexts, like runing checks in packages, building its website, and so on.
+    Package developers can easily start using Acitons with the help of package usethis!
+:::
+
+##  {.center}
+
+::: center-y
+#### How important is GHA to RStudio?
+:::
+
+<br>
+
+::: columns
+::: {.column .center width="70%"}
+```{r}
+#| fig.height: 5.8
+#| fig.width: 8
+#| dpi: 600
+# knitr::include_graphics("img/plot_zoom.png")
+graph <- readr::read_rds("graph.rds")
+graph
+```
+:::
+
+::: {.column .rstudioslide width="30%"}
+-   Completed action runs
+-   Public repositories from:
+    -   [rstudio](https://github.com/rstudio)
+    -   [tidyverse](https://github.com/tidyverse)
+    -   [r-lib](https://github.com/r-lib)
+    -   [mlverse](https://github.com/mlverse)
+    -   [tidymodels](https://github.com/tidymodels)
+    -   [quarto-dev](https://github.com/quarto-dev)
+:::
+:::
+
+::: note
+-   The tidyverse packages and other projects from RStudio uses Actions. This plot shows how the use of actions has been increasing in repositories in the organizations from Rstudio, such as : rstudio, tidyverse, r-lib, mlverse, tidymodels and quarto.
+:::
+
 ## What can we do with GHA? {.wow .center}
 
--   Run arbitrary R scripts:
+ Run arbitrary R scripts:
 
-    -   Scrape data from the internet
+  -   Scrape data from the internet
 
-    -   Run reports with RMarkdown or Quarto
+  -   Run reports with RMarkdown or Quarto
 
-    -   Send emails
+  -   Send emails
 
-    -   Save results
+  -   Save results
 
-## TODO
+::: {.notes}
+
+But what about people that are not package developers?
+What can be done apart from package development tasks?
+
+This are some of the things that you can do with Actions: Scrape data from the internet, render reports with RMarkdown or Quarto, save results from an analysis, and even send them on an email!
+
+:::
+
+##  {.codeyml}
+
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: codeyml
+#| code-line-numbers: false
+on: # what triggers the workflow?
+  workflow_dispatch: # start when pressing a button
+  schedule: 
+  - cron: "0 0 * * *" # run everyday
+
+```
+
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: graycode
+#| code-line-numbers: false
+
+
+name: execute-r-script
+
+jobs:
+  execute-r-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2
+        with: 
+          use-public-rspm: true
+      - name: run-script
+        run: Rscript my_awesome_R_script.R
+```
+
+##  {.codeyml}
+
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: graycode
+#| code-line-numbers: false
+on: 
+  workflow_dispatch: 
+  schedule: 
+  - cron: "0 0 * * *" 
+
+
+```
+
+
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: codeyml
+#| code-line-numbers: false
+
+
+name: execute-r-script # name of the workflow
+
+```
+
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: graycode
+#| code-line-numbers: false
+
+
+jobs:
+  execute-r-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2
+        with: 
+          use-public-rspm: true
+      - name: run-script
+        run: Rscript my_awesome_R_script.R
+```
+
+
+##  {.codeyml}
+
+<!-- #### How can we start using GitHub Actions? {.center} -->
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: graycode
+#| code-line-numbers: false
+on: 
+  workflow_dispatch: 
+  schedule: 
+  - cron: "0 0 * * *" 
+
+
+```
+
+
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: graycode
+#| code-line-numbers: false
+
+
+name: execute-r-script
+
+```
+
+
+```{yml}
+#| eval: false
+#| include: true
+#| echo: true
+#| classes: codeyml
+#| code-line-numbers: false
+
+
+jobs: # what the workflow should do?
+  execute-r-script:
+    runs-on: ubuntu-latest # Run on Ubuntu
+    steps:
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2 # Install R
+      - name: run-script
+        run: Rscript my_awesome_R_script.R # Run R script
+```
+
+
+##  Examples {.center}
+
+[![](img/blog.png){fig-align="center" width="60%"}](https://beamilz.com/series-gha.html)
+
+<center>
+<https://beamilz.com/series-gha.html>
+</center>
+
+::: {.notes}
+-   I prepared a series of posts that can help you start using Actions, which several examples! Also, there is a repository that you can fork, and explore later!
+:::
 
 ## Thanks! {.center}
 
 -   [RStudio](https://www.rstudio.com/) - Thanks for the **Diversity Scholarship**!
 
--   [Curso-R](https://curso-r.com/) and Julio Trecenti, Daniel Falbel, Athos Damiani
+- [R-Ladies São Paulo](https://www.meetup.com/pt-BR/rladies-sao-paulo/) and [R-Ladies Global](http://r-ladies.org/)
+
+-   [Curso-R](https://curso-r.com/) and [Julio Trecenti](https://github.com/jtrecenti), [Daniel Falbel](https://github.com/dfalbel), [Athos Damiani](https://github.com/Athospd)
 
 -   Creators and contributors of [r-lib/actions](https://github.com/r-lib/actions)
 

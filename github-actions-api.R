@@ -176,7 +176,7 @@ final_graph <- base_graph +
         plot.title.position = "plot",
         plot.title = element_text(family = "Montserrat", color = "#4c83b6"),
         text = element_text(family = "Montserrat", color = "#80868b")) +
-  labs(y = "Actions runs per month", x = "\nMonth\n",
+  labs(y = "Actions runs per month", x = "",
        title = "Actions runs by RStudio's organizations on GitHub",
        caption = "Plot made by @BeaMilz. Data from the GitHub API.") +
   scale_x_date(date_labels = "%b/%y", date_breaks = "4 month",
@@ -186,7 +186,7 @@ final_graph <- base_graph +
   ggrepel::geom_text_repel(data = max_min, aes(x = run_month, y = n, label = label), size = 10, color = "#4c83b6",nudge_y = 4000, nudge_x = 0, min.segment.length = 0)
 
 
-final_graph
+readr::write_rds(final_graph, "graph.rds")
 
 
 ggsave(

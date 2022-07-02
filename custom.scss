@@ -32,6 +32,24 @@ $body-color: #80868b;
   line-height: 1.1em;
 }
 
+.codeyml {
+  font-size: 38pt !important;
+  line-height: 1em !important;
+}
+
+.graycode, .graycode .fu, .graycode .kw,  .graycode .at, .graycode .st, .graycode .ch   {
+  color: #80868b !important;
+  font-size: 34pt !important;
+  line-height: 1em !important;
+}
+
+.reveal pre.sourceCode code {
+    background-color: #fff;
+    padding: 0px 0px;
+    max-height: 100%;
+    white-space: pre;
+}
+
 
 
 .reveal .footer > * {
