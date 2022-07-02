@@ -35,13 +35,11 @@ format:
 
 ::: notes
 -   So, i'm going to ask a question and would be really nice if you could raise your hand if this applies to you: do you have to do a task using R in a regular basis? like every day, once a week, once a month, for example?
-
-(WAIT SOME SECONDS SO PEOPLE CAN THINK AND RAISE THEIR HANDS)
 :::
 
 ##  {.center .center-y}
 
-![](img/githubactions.jpg){fig-align="center" heigth="100%"}
+![Logo of GitHub Actions](img/githubactions.jpg){fig-align="center" heigth="100%"}
 
 ::: notes
 -   If you raised your hand, GitHub Actions can be usefull to you!
@@ -54,7 +52,7 @@ format:
 ### How can I run R Scripts with it?
 
 ::: notes
--   and Today my aim is to answer this question: "What is GitHub Actions? How can I run R Scripts with it?"
+-   and Today my aim is to answer these questions: "What is GitHub Actions? How can I run R Scripts with it?"
 :::
 
 ## R packages 📦
@@ -94,10 +92,11 @@ See other examples in: [github.com/r-lib/actions/](https://github.com/r-lib/acti
 
 ::: columns
 ::: {.column .center width="70%"}
-```{r}
+```{r graph}
 #| fig.height: 5.8
 #| fig.width: 8
 #| dpi: 600
+#| fig.alt: "This image is a line plot made with ggplot2, it shows  GitHub Actions runs by RStudio's organization on GitHub. In the X axis, we have month/year and in the Y axis we have the total GitHub Actions runs per month. We can see that the Actions runs increased from 4k per month in May/2020 to around 18k per month in May/2022." 
 # knitr::include_graphics("img/plot_zoom.png")
 graph <- readr::read_rds("graph.rds")
 graph
