@@ -34,7 +34,7 @@ format:
 ### every month?
 
 ::: notes
--   So, i'm going to ask a question and would be really nice if you could raise your hand if this applies to you: do you have to do a task using R in a regular basis? like every day, once a week, once a month, for example?
+-   So do you have to do a task using R in a regular basis? like every day, once a week, once a month, for example?
 :::
 
 ##  {.center .center-y}
@@ -42,17 +42,17 @@ format:
 ![Logo of GitHub Actions](img/githubactions.jpg){fig-align="center" heigth="100%"}
 
 ::: notes
--   If you raised your hand, GitHub Actions can be usefull to you!
+-   If your answer is yes, GitHub Actions can be usefull to you!
 :::
 
 ## What is GitHub Actions? {.center .center-y}
 
 <br>
 
-### How can I run R Scripts with it?
+### How can we run R Scripts with it?
 
 ::: notes
--   and Today my aim is to answer these questions: "What is GitHub Actions? How can I run R Scripts with it?"
+-   and Today my aim is to answer these questions: "What is GitHub Actions? How can we run R Scripts with it?"
 :::
 
 ## R packages 📦
@@ -78,8 +78,8 @@ See other examples in: [github.com/r-lib/actions/](https://github.com/r-lib/acti
 ::: notes
 -   So, Actions is a service from GitHub that allows us to automate code executions in the cloud.
 
--   GitHub Actions has been heavily used in some contexts, like runing checks in packages, building its website, and so on.
-    Package developers can easily start using Acitons with the help of package usethis!
+-   GitHub Actions has been heavily used in some contexts, like runing checks in packages, building the package website, and so on.
+    Package developers can easily start using Acitons with the help of the package usethis and the function use_github_action(). There are several awesome examples in the r-lib/actions repository!
 :::
 
 ##  {.center}
@@ -116,10 +116,18 @@ graph
 :::
 
 ::: {.notes}
--   The tidyverse packages and other projects from RStudio uses Actions. This plot shows how the use of actions has been increasing in repositories in the organizations from Rstudio, such as : rstudio, tidyverse, r-lib, mlverse, tidymodels and quarto.
+-   But, how importat is GitHub Actions to RStudio? The tidyverse packages that we all use and other projects from RStudio uses Actions. This plot shows how the use of actions has been increasing in repositories in the organizations from Rstudio, such as : rstudio, tidyverse, r-lib, mlverse, tidymodels and quarto. Actions are important to run checks on code changes and pull requests, update the documentation and website of our favorite packages. In two years, the number of action runs per month increased more than 4 times. !
 :::
 
 ## What else can we do? {.wow .center}
+
+::: {.notes}
+
+But what about people that are not package developers?
+What can be done apart from package development tasks?
+
+
+:::
 
 ##  Run arbitrary R scripts {.center}
 
@@ -133,8 +141,6 @@ graph
 
 ::: {.notes}
 
-But what about people that are not package developers?
-What can be done apart from package development tasks?
 
 This are some of the things that you can do with Actions: Scrape data from the internet, render reports with RMarkdown or Quarto, save results from an analysis, and even send them on an email!
 

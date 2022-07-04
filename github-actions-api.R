@@ -49,39 +49,23 @@ original_rstudio_repos <- rstudio_repositories |>
 readr::write_rds(original_rstudio_repos,
                  glue::glue("data/original_rstudio_repos_{Sys.Date()}.Rds"))
 
-get_repo_github_actions <- function(repo_full_name){
-
-  workflows_list <- gh::gh("GET /repos/{full_name}/actions/workflows",
-                           full_name = repo_full_name)
-
-  workflows_df <- workflows_list |>
-    purrr::pluck("workflows") |>
-    purrr::modify_depth(1, tibble::as_tibble) |>
-    purrr::map_dfr(dplyr::bind_rows, .id = "id_repo") |>
-    dplyr::mutate(repo = repo_full_name, .before = tidyselect::everything())
-
-  workflows_df
-}
+# get_repo_github_actions <- function(repo_full_name){
+#
+#   workflows_list <- gh::gh("GET /repos/{full_name}/actions/workflows",
+#                            full_name = repo_full_name)
+#
+#   workflows_df <- workflows_list |>
+#     purrr::pluck("workflows") |>
+#     purrr::modify_depth(1, tibble::as_tibble) |>
+#     purrr::map_dfr(dplyr::bind_rows, .id = "id_repo") |>
+#     dplyr::mutate(repo = repo_full_name, .before = tidyselect::everything())
+#
+#   workflows_df
+# }
 
 
 # rstudio_actions <- original_rstudio_repos$full_name |>
 #   purrr::map_dfr(get_repo_github_actions)
-
-
-
-
-# viz - creating of actions on repositories
-# library(ggplot2)
-# rstudio_actions |>
-#   dplyr::filter(state == "active") |>
-#   dplyr::mutate(created_at = lubridate::as_date(created_at),
-#     created_month = lubridate::floor_date(created_at, "month")) |>
-#   dplyr::count(created_month) |>
-#   dplyr::mutate(n_acumulated = cumsum(n)) |>
-#   ggplot() +
-#   geom_line(aes(x = created_month, y = n_acumulated))
-
-
 
 
 
@@ -189,11 +173,11 @@ final_graph <- base_graph +
 readr::write_rds(final_graph, "graph.rds")
 
 
-ggsave(
-  "img/rstudio_ggplot.png",
-  plot = final_graph,
-  dpi = 300,
-  height = 5,
-  width = 7
-)
+# ggsave(
+#   "img/rstudio_ggplot.png",
+#   plot = final_graph,
+#   dpi = 300,
+#   height = 5,
+#   width = 7
+# )
 
