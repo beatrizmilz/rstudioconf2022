@@ -17,7 +17,7 @@ format:
     preview-links: false
 # <!-- ::: {.notes} -->
 # <!-- Slide 1:
-# Hi everyone! It's a great honor to be here to present this talk. My name is Beatriz, and today I'm going to talk about how to make awesome automations with GitHub Actions. -->
+# Hi everyone! It's a great honor to be here. My name is Beatriz, and today I'm going to talk about how to make awesome automations with GitHub Actions. -->
 # <!-- ::: -->
 ---
 
@@ -79,7 +79,7 @@ See other examples in: [github.com/r-lib/actions/](https://github.com/r-lib/acti
 -   So, Actions is a service from GitHub that allows us to automate code executions in the cloud.
 
 -   GitHub Actions has been heavily used in some contexts, like runing checks in packages, building the package website, and so on.
-    Package developers can easily start using Acitons with the help of the package usethis and the function use_github_action(). There are several awesome examples in the r-lib/actions repository!
+    Package developers can easily start using Acitons with the help of the package usethis. There are several awesome examples in the r-lib/actions repository!
 :::
 
 ##  {.center}
@@ -142,7 +142,7 @@ What can be done apart from package development tasks?
 ::: {.notes}
 
 
-This are some of the things that you can do with Actions: Scrape data from the internet, render reports with RMarkdown or Quarto, save results from an analysis, and even send them on an email!
+This are some of the things that you can do with Actions: Scrape data from the internet, render RMarkdown or Quarto files, save results from an analysis, and even send them on an email!
 
 :::
 
@@ -174,6 +174,13 @@ jobs: # what the workflow should do?
         run: Rscript my_awesome_R_script.R  # Run R script
 ```
 
+::: {.notes}
+
+
+This is an example of a basic workflow. It is a YAML file, and in first lines we describe what triggers the workflow, so in what conditions should the workflow run? In this case, it runs everyday but we also get a button to start it.
+
+:::
+
 ## {}
 
 ```{yml}
@@ -201,7 +208,12 @@ jobs: # what the workflow should do?
         run: Rscript my_awesome_R_script.R  # Run R script
 ```
 
+::: {.notes}
 
+
+We can also name the workflow :)
+
+:::
 
 ## {}
 
@@ -230,6 +242,12 @@ jobs: # what the workflow should do?
         run: Rscript my_awesome_R_script.R  # Run R script
 ```
 
+::: {.notes}
+
+
+And in `jobs` we describe what the workflow should do. Imagine that its a brand new computer with no R installed, and we have to do all the setup in this step! In this example, we are using Ubuntu, installing R, and then running an R script. If we have anything to be saved in the repository, we can also add git commands to do so!
+
+:::
 
 ##  More examples... {.center}
 
@@ -240,7 +258,7 @@ jobs: # what the workflow should do?
 </center>
 
 ::: {.notes}
--   I prepared a series of posts that can help you start using Actions, which several examples! Also, there is a repository that you can fork, and explore later!
+-   I really love this topic, but this is a 5 minute talk, So, In my blog, you can find posts about Actions, with examples! And there are more posts in the oven :) 
 :::
 
 ## Thanks! {.center}
